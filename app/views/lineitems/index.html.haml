@@ -1,0 +1,21 @@
+%h1 Listing lineitems
+
+%table
+  %tr
+    %th Quantity
+    %th Unit price
+    %th
+    %th
+    %th
+
+  - @lineitems.each do |lineitem|
+    %tr
+      %td= lineitem.quantity
+      %td= lineitem.unit_price
+      %td= link_to 'Show', lineitem
+      %td= link_to 'Edit', edit_lineitem_path(lineitem)
+      %td= link_to 'Destroy', lineitem, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Lineitem', new_lineitem_path

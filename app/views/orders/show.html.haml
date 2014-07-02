@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Total:
+  = @order.total
+%p
+  %b Shipped:
+  = @order.shipped
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path

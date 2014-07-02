@@ -1,0 +1,13 @@
+.heading
+  %h1   
+    =@id
+#thing.clearfix
+  .sriBody
+    #allPictures
+      - @instagramPics.each do |instagram|
+        .eachphoto
+          = image_tag instagram.images.low_resolution.url
+          = link_to photos_path(image_url: instagram.images.low_resolution.url ), method: :post do
+            .overlay
+              %h2 
+                Select this photo

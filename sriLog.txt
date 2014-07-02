@@ -1,0 +1,197 @@
+1)scaffolded and the rest
+  -rake db:migrate - DONE
+  -created a simple seed file - Done
+  -test in console - NOTYET
+
+2) adding devise and oauth
+      -Add devise - Done
+        devise routes - GET INSTRUCTOR HELP
+      -adding static landing page DONE
+3) Adding Instagram controllers and login 
+      -Add login button to landing page for instagram DONE
+      -redirect to instagram DONE
+      -redirect to instagram connect DONE
+      -configure Logout - NEED HELP
+4) Selection process for picking photos and prevewing your buttons
+      -Create divs and containers for each photo - DONE
+        -grab photos
+        -create photo objects 
+        -render photo objecrts 
+      -'selectify' a div when clicked on
+      -Add a next button 
+      -When next button is clicked, 
+      I want to 
+  1)put each pic in a container
+  2)space out the containers
+  3)have nav bars and headers
+  4)do selection - CURRENT
+  5)add to cart
+
+SELECTION - 
+  1) on hover have 'select this?' overlay - CURRENT
+      2)have a expand button to expan view - CURRENT 
+        3)investigate jlibary
+
+
+CURRENT
+  -on hover, do overlay - DONE
+  -h2 make it small, white and centred always - DONE
+  
+Selection and creation of orders
+  -On clicking of photos, add: photo instagram id and url to params, quantity, unit price, customer_id to order creation page. 
+  1) unsterdtand the params array -CURRENT
+  2)understand forms 
+  3) understand instagram filds -DONE 
+  4)fill parms and call the controller action 
+
+
+
+
+1) put all pics in a grid and marginize left and right 
+2) select a pic and overlay is selected 
+3) number selection 
+4) WORK/THINIK ABOUT ADDING TO CART
+    -nested attributes 
+    -use ajax?  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+order of creation 
+      photo -> instagram_photo_id, url-> instagram_high_res_url, customer_id->curr_user
+    Lineitem -> photo_id, product_id->url of current product, quanity->jquery dataquanity, unit-price->current_price unit price, order_id-> create a new order
+  Order -> create a new order
+
+ORder will have 
+shipped: 
+total:
+
+
+
+
+
+--------------30th june----------------------
+
+1) new table structures
+  1)create on paper - DONE 
+  2)redo the migrations - DONE
+  3)seed data - Done
+  4)try in console
+
+      1)Understand nested atrributes -Done
+      2)resee your example app - done
+      3)understand forms - done 
+
+
+      create order
+      0)push to git 
+      1)put form - DONE
+      2)hidify it - CURRENT
+      3)add main button 
+      4)build hash -current
+      5) 
+
+        selection 
+          1)on eachpic click, add quatity and put insta pic id and put 'selected'
+          2)on big button click
+            1)step through all the pictures
+            2)if selected 
+              create backwards
+              photo - id
+
+
+
+
+ Recursion presentation 
+
+ 1)figure out slide headdings - CURRENT
+ 2)5 topics - 5 mintues 
+ 3)Figure out 5 topics
+
+
+-----------1 july ------------
+
+1) add migration to orders to have incompete/complete. Incomplete is defualt - Done 
+2) order and user flow - DONE
+3)add users to your table, no worry about orders- CURRENT
+3) add alias so I can have a current order. it will always be the last uncompleted order 
+
+
+CURRENT
+-work on the saving of new users and allowing them to save their accounts on the app
+
+  1) refactor devise
+        - add authictications migration -DONE
+  2) add instagram -DONE
+  3) have user log in and create account - DONE
+  4)and google autheitications - DONE
+
+  ---------------------2nd July-----------------------------------
+
+  do the product page with links 
+    -Sort out the proper flow - CURRENT
+    -Do it for coffee mugs
+        -have coffee mug picture 
+        - click get pictures
+        - add to orders
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  things i have learnt:
+  1)xm css
+  2)Oauth
+  3)nested attributes 
+
+
+
+
+
+
+
+        

@@ -1,0 +1,10 @@
+- if session[:access_token]
+  You're connected to instagram !
+  %br
+  / %a{href: "https://instagram.com/accounts/logout"} logout?
+  / %a{href: "/instagram/user_recent_media"} get recent medias
+  %a{href: "/products"} See all my products!!  
+- else
+  <a href= "/instagram/connect"> Connect </a>
+
+

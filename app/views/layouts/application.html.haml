@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title KatalystApp
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    - if customer_signed_in?
+      Logged in as
+      %b= current_customer.email
+      \|
+      = link_to 'Edit Profile', edit_customer_registration_path
+      \|
+      = link_to 'Logout',  destroy_customer_session_path, method: :delete
+    - else
+      Sign in with
+      = link_to "Instagram", customer_omniauth_authorize_path(:instagram)
+      or     
+      \|
+      = link_to 'Sign up', customer_registration_path
+      \|
+      = link_to 'Login', new_customer_session_path
+    = yield
