@@ -250,14 +250,67 @@ things to do - CURRENT
 INSTRUCTOR HELP
 1)empty quanity
 2)lineitem is zero issue
-3)moving forward
+3)moving forward, cart, state gem
+4)checkout process in backbone
 
+4))lineitems must not saved if quanity = 0 or instagram_id = 0
+5)can't get zeero
 
 FUTURE ISSUES
 
 1)if their name is blank in instagram, they can't save to your app
 3)must make emails unique
 4)lineitems must not saved if quanity = 0 or instagram_id = 0
+
+
+-------------4th july. Aaaaamayyyerika! ----------------
+
+
+CART
+
+1)make me a canvas
+2)figure out what i want to do js wise
+3)add fields to customer and order
+4)shipping form
+5)slide to stripe form
+6)controller action for thank you and prawn
+
+
+fields that need to be added
+ORDER
+invoice pdf 
+CUSTOMER
+address
+
+----------------------------------------------
+
+
+1)make me a canvas - DONE
+2)sliding up shipping form 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
 
 
 
