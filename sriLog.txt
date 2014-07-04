@@ -150,8 +150,18 @@ CURRENT
     -Sort out the proper flow - CURRENT
     -Do it for coffee mugs
         -have coffee mug picture 
-        - click get pictures
+        - click get pictures - CURRENT
         - add to orders
+        - set up order logic
+
+
+
+
+---------------2nd july 2nd half-----------------
+
+1)modal pop up - DONE
+
+2)form building - CURRENT
 
 
 
@@ -166,31 +176,88 @@ CURRENT
 
 
 
+---------------3JULY-----------------
+
+
+WHAT I NEED TO DO:
 
 
 
 
 
+FORM BUILDING FOR ORDER
+
+load and display pictures 
+  all data-id-quanity = 0, pic-id = i
+
+when a picture is clicked 
+  class has been slected-> true 
+  on up click -> data-id-quanity of html tag ++
+              -> of the form field vaule 
+  on down click -> data-id-quanity -- unless = 0 (set still zero)
+                -> form field value 
+
+  NON - ajax WAY
+  
+    when submit button pressed
+    prevent default 
+
+    START
+
+    jquery/_ gets all the 20 pictures
+    goes through each pic-id
+      if the qaunity is !0
+      create a new line item with jquery
+      all i? submit the form and update order
+
+    END
+        
+
+things to do - CURRENT
+  1) set two fields pic id & data quantity -DONE 
+  2)set click logic - CURRENT
+  3) test this is working
+
+--------------------------3rd july part 2-----------------------------
+
+0) understand what JOn did - DONE
+1) wire the jquery to change the forms -CURRENT
+2) submit and check in the console
+3) redirect to products which still has the number
 
 
 
+1)
+    -add 3 links - CURRENT
+      -a select, up and down 
+      -do on clicking sort them out 
 
 
 
+-----------------------3rd july part 3---------------------------------
+
+
+1)Form Logic - CURRENT
+2)REdirect to procuts and have super form logic
+4)JS on products
+5)go to checkout
+6)create instagram accounts
+7)clear your basket ajax method
+--------------------------------------------------------------
 
 
 
+INSTRUCTOR HELP
+1)empty quanity
+2)lineitem is zero issue
+3)moving forward
 
 
+FUTURE ISSUES
 
-  things i have learnt:
-  1)xm css
-  2)Oauth
-  3)nested attributes 
-
-
-
-
+1)if their name is blank in instagram, they can't save to your app
+3)must make emails unique
+4)lineitems must not saved if quanity = 0 or instagram_id = 0
 
 
 

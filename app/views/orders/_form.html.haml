@@ -12,5 +12,25 @@
   .field
     = f.label :shipped
     = f.check_box :shipped
+
+    = f.fields_for :address do |builder|
+      .field
+        = builder.label :city
+        %br/
+        = builder.text_field :city
+    = f.fields_for :rooms do |builder|
+      .field
+        = builder.label :size
+        %br/
+        = builder.number_field :size
+    = f.fields_for :owner do |builder|
+      .field
+        = builder.label :fname
+        %br/
+        = builder.text_field :fname
+      .field
+        = builder.label :lname
+        %br/
+        = builder.text_field :lname
   .actions
     = f.submit 'Save'

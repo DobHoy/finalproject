@@ -21,10 +21,14 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'sprockets-rails', '=2.0.0.backport1'
 gem 'sprockets', '=2.2.2.backport2'
 gem 'sass-rails', github: 'guilleiguaran/sass-rails', branch: 'backport'
+gem 'bootstrap-glyphicons'
+gem 'underscore-rails'
+gem "nested_form"
 
 
 group :development do
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'

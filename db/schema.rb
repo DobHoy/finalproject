@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140702095200) do
+ActiveRecord::Schema.define(:version => 20140702134304) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(:version => 20140702095200) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.integer  "instagramid"
+    t.string   "image"
+    t.string   "name"
   end
 
   add_index "customers", ["confirmation_token"], :name => "index_customers_on_confirmation_token", :unique => true
@@ -53,22 +54,28 @@ ActiveRecord::Schema.define(:version => 20140702095200) do
   create_table "lineitems", :force => true do |t|
     t.integer  "quantity"
     t.integer  "unit_price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "photo_id"
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.string   "instagram_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "orders", :force => true do |t|
     t.integer  "total"
     t.boolean  "shipped"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.boolean  "iscomplete"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "iscomplete",  :default => false, :null => false
+    t.integer  "customer_id"
   end
 
   create_table "photos", :force => true do |t|
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "customer_id"
   end
 
   create_table "products", :force => true do |t|

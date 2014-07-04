@@ -33,14 +33,34 @@ class OrdersController < ApplicationController
   end
 
   # GET /orders/1/edit
+  # GET /orders/1/edit?mugs
   def edit
     @order = Order.find(params[:id])
+    @product = Product.find(params[:product_id])
+
+    client = Instagram.client(:access_token => session[:access_token])
+    @instagramPics = client.user_recent_media
+
+    @instagramPics.each do |pic|
+      unless @order.lineitems.detect { |li| li.instagram_id == pic.id && li.product == @product }
+        @order.lineitems.build product: @product, quantity: 0, unit_price: @product.current_price, instagram_id: pic.id
+      end
+    end
+
+    #get pictures and rendder edit page with my pictures 
+
+  end
+
+  def show_lineitems
+    @lineitems = Lineitems.find(params[:id])
   end
 
   # POST /orders
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+
+
 
     respond_to do |format|
       if @order.save
@@ -57,16 +77,8 @@ class OrdersController < ApplicationController
   # PUT /orders/1.json
   def update
     @order = Order.find(params[:id])
-
-    respond_to do |format|
-      if @order.update_attributes(params[:order])
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
-    end
+    @order.update_attributes(params[:order])
+    redirect_to products_path
   end
 
   # DELETE /orders/1

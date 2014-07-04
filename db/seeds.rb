@@ -14,11 +14,11 @@ Order.delete_all
 
 # #Generating users
 
-customer1 = Customer.create!(:first_name=>"Sri", :last_name => "Mohan", :email => "sri@gmail.com", :password =>"password")
-customerAdmin = Customer.create!(:first_name=>"Admin", :last_name => "Admin", :email => "admin@gmail.com", :password =>"adminpassword")
+customer1 = Customer.create!(:name=>"Sri", :email => "sri@gmail.com", :password =>"password")
+customerAdmin = Customer.create!(:name=>"Admin", :email => "admin@gmail.com", :password =>"adminpassword")
 
 ProductMugs = Product.create!(:name=>"Coffee Mugs", :description=>"Amazing coffee mugs with your photos on them!", :current_price=>100, :example_url=>"http://www.zwaldtransport.com/images/placeholders/placeholder1.jpg")
-ProductTshirts = Product.create!(:name=>"T-shirts ", :description=>"Amazing tshirts with your photos on them!", :current_price=>100,:example_url=>"http://www.zwaldtransport.com/images/placeholders/placeholder1.jpg")
+ProductTshirts = Product.create!(:name=>"T-shirts ", :description=>"Amazing tshirts with your photos on them!", :current_price=>50,:example_url=>"http://www.zwaldtransport.com/images/placeholders/placeholder1.jpg")
 ProductButtons = Product.create!(:name=>"buttons", :description=>"Amazing buttons with your photos on them!", :current_price=>200, :example_url=>"http://www.zwaldtransport.com/images/placeholders/placeholder1.jpg")
 
 [customer1, customerAdmin].each(&:skip_confirmation!).each(&:save!)

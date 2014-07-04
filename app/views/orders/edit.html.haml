@@ -1,6 +1,65 @@
-%h1 Editing order
+.heading
+  %h1   
+    =@id
+#thing.clearfix
+  .sriBody
+    #allPictures
+      - @instagramPics.each_with_index do |instagram,index| 
+        .eachphoto{"data-item-quanity" => 0, "data-pic-index" => index, "data-hasBeenSelected" =>false, "data-instagram-tag-id"=> instagram.id }
+          = image_tag instagram.images.low_resolution.url
+          = link_to photos_path(image_url: instagram.images.low_resolution.url ), method: :post do
+            .overlay
+              %h2 
+                Select this photo
+              %ul
+                %li.btn.btn-success.btn-lg
+                  %a.glyphicon.glyphicon-search{"data-img-url" => instagram.images.standard_resolution.url, "data-toggle" => "modal", href: "#myModal"}
+                %li.btn.btn-success.btn-lg
+                  %a.glyphicon.glyphicon-plus
+                %li.btn.btn-success.btn-lg
+                  %a.glyphicon.glyphicon-minus{}
 
-= render 'form'
+
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog",  tabindex: "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} X
+  .modal-body
+    %img{src: "#"}/
+  .modal-footer
+    %button.btn.label-success{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+
+We have #{@order.lineitems.select { |li| li.product_id == @product.id }.length} lineitems
+
+= nested_form_for @order do |f|
+  - if @order.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      %ul
+        - @order.errors.full_messages.each do |msg|
+          %li= msg
+
+  / - @instagramPics.each do |x|
+  .field
+    = f.hidden_field :total , :data => {:test => '6'}
+  .field
+    = f.hidden_field :shipped
+    = f.fields_for :lineitems do |builder|
+      - if builder.object.product == @product
+        .field
+          = builder.label :quantity
+          = builder.text_field :quantity, "data-instagram-form-id" => builder.object.instagram_id
+        .field   
+          = builder.label :unit_price
+          = builder.text_field :unit_price
+        .field   
+          = builder.label :instagram_id
+          = builder.text_field :instagram_id
+        .field   
+          = builder.label :product_id
+          = builder.text_field :product_id
+  .actions
+    = f.submit 'Save', :id => 'orderButton'
+
 
 = link_to 'Show', @order
 \|

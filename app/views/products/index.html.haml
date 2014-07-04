@@ -2,24 +2,31 @@
 
 %table
   %tr
-    %th Name
-    %th Description
-    %th Example url
-    %th Current price
+    %th LI quanitity 
+    %th LI unit price 
+    %th LI product id 
+    %th LI instagram pic id 
     %th
     %th
     %th
 
   - @products.each do |product|
     %tr
-      %td= product.name
-      %td= product.description
-      %td= product.example_url
-      %td= product.current_price
-      %td= link_to 'Show', product
-      %td= link_to 'Edit', edit_product_path(product)
-      %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %p
+        %b hey:
+        = link_to edit_order_path(@current_order, :product_id => product.id) do
+          = image_tag("http://www.zwaldtransport.com/images/placeholders/placeholder1.jpg")
 
+  - @current_order.lineitems.each do |lineitem|
+    %tr      
+      %td= lineitem.quantity
+      %td= lineitem.unit_price
+      %td= lineitem.product_id
+      %td= lineitem.instagram_id
+       
 %br
 
-= link_to 'New Product', new_product_path
+
+
+
+

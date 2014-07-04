@@ -69,3 +69,11 @@ opacity:0.4;
   overflow: hidden;
   width: 30%;
 }
+
+
+#myModal img{
+    position: center;
+      margin: 10% 30% 10% 30%;
+
+
+}

@@ -1,14 +1,17 @@
 %p#notice= notice
 
 %p
-  %b Name:
+  %b HEY!!!:
   = @product.name
 %p
   %b Description:
   = @product.description
 %p
   %b Example url:
-  = @product.example_url
+  = link_to @product, :class => "" do
+    #pic
+      = image_tag("yo")
+
 %p
   %b Current price:
   = @product.current_price

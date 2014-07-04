@@ -13,6 +13,10 @@
       = link_to 'Edit Profile', edit_customer_registration_path
       \|
       = link_to 'Logout',  destroy_customer_session_path, method: :delete
+      \| 
+      = link_to('see your photos!!', instagram_user_recent_media_path)
+      \| 
+      = link_to('See all avialble products',   products_path)
     - else
       Sign in with
       = link_to "Instagram", customer_omniauth_authorize_path(:instagram)

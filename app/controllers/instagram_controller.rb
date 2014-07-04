@@ -51,28 +51,28 @@ class InstagramController < ApplicationController
       # what do you do when you just get to the index with the acess token?
       # should I store the order id in session?
 
-          client = Instagram.client(:access_token => session[:access_token])
+    #       client = Instagram.client(:access_token => session[:access_token])
 
-          mycustomer_id = client.user.id
+    #       mycustomer_id = client.user.id
 
-          @customer = Customer.find_or_create_by(:id => mycustomer_id)
+    #       @customer = Customer.find_or_create_by(:id => mycustomer_id)
 
-          @current_order = @customer.orders.last 
-
-
-
-          #check if last order is complete or not            
-          #create a order set it to incomplete
-          if @current_order == nil || @current_order.iscomplete
-            @current_order = Order.new(iscomplete: false)
-          end
+    #       @current_order = @customer.orders.last 
 
 
+
+    #       #check if last order is complete or not            
+    #       #create a order set it to incomplete
+    #       if @current_order == nil || @current_order.iscomplete
+    #         @current_order = Order.new(iscomplete: false)
+    #       end
 
 
 
 
-    redirect_to "/products"
+
+
+    # redirect_to "/products"
   end
 
   def user_recent_media

@@ -3,6 +3,11 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    #I have my new order and my customer?
+
+    @current_order = current_customer.current_order || current_customer.orders.create! 
+
+    
 
     respond_to do |format|
       format.html # index.html.erb
