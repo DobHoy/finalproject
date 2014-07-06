@@ -261,7 +261,7 @@ FUTURE ISSUES
 1)if their name is blank in instagram, they can't save to your app
 3)must make emails unique
 4)lineitems must not saved if quanity = 0 or instagram_id = 0
-
+5)uncomment the greater than zero validation and use js to remove the form filed on submit form anyway
 
 -------------4th july. Aaaaamayyyerika! ----------------
 
@@ -286,7 +286,45 @@ address
 
 
 1)make me a canvas - DONE
-2)sliding up shipping form 
+2)sliding up shipping form - DONE
+
+3)STRIPE
+  1)ADD EXTRA FIELDS TO ORDER AND CUSTOMER - DONE
+  2)migrate -DONE
+  3)determine the flow of the charge -CURRENT
+  4)create the stripe charge and test - CURRENT
+  4)create the exit page
+  5)create the entry page
+  6)create the mailer and the prawn send off
+
+
+
+
+
+
+
+-----------------------------------5th JULY--------------------------------------------
+
+
+1) combo both forms and get them to work -CURRENT
+2) make sure customer and order work ok
+3) set order to be complete and have second order be ok
+
+
+
+
+
+CURRENT
+-build customer extracotr and send - DONE
+-CHeckif everything flows propberly by printing -DONE
+-CREATE stripe objects - DONE
+push to git hub
+-coffec script everything
+
+
+------------------------------6th july ----------------------------
+
+1)go through the site and list out all thefeatures that need to be done beofre the app is considered complete
 
 
 
@@ -299,13 +337,28 @@ address
 
 
 
-
-
-
-
-
-
-
+function stripeResponseHandler(status, response) {
+                if (response.error) {
+                                        console.log("I'm in the stripe resonpnse");
+                    // re-enable the submit button
+                    $('.submit-button').removeAttr("disabled");
+                    // show hidden div
+                    // document.getElementById('a_x200').style.display = 'block';
+                    // show the errors on the form
+                    // $(".payment-errors").html(response.error.message);
+                    console.log(response.error.message);
+                    $("#errorPrint").html(response.error.message);
+                } else {
+                    var form$ = $("#payment-form");
+                    // token contains id, last4, and card type
+                    var token = response['id'];
+                                        console.log("stripe token is" + token);
+                    // insert the token into the form so it gets submitted to the server
+                    form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+                    // and submit
+                    form$.get(0).submit();
+                }
+            }
 
 
   

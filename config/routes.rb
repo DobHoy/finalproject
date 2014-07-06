@@ -1,6 +1,8 @@
 KatalystApp::Application.routes.draw do
   
-  resources :carts
+  resources :carts do 
+        get 'test'
+  end
 
 
 

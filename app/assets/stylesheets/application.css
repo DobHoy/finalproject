@@ -31,12 +31,7 @@
   background:#FF2400;
 }
 
-/*.eachphoto .overlay{
-width: 100%;
-background:#FF2400;
-opacity:1;
-}
-*/
+
 .overlay:hover{
 width: 100%;
 background:#FF2400;
@@ -76,4 +71,15 @@ opacity:0.4;
       margin: 10% 30% 10% 30%;
 
 
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    text-align:left;
+    margin-right:-4px;
+}
+.row-centered {
+  margin-left: 9px;
+  margin-right: 9px;
 }

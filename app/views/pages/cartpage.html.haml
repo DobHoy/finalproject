@@ -1,2 +1,124 @@
-%p
-  hi this is the cart
+!!!
+%html{lang: "en"}
+  %head
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+    Stripe.setPublishableKey('pk_test_wmqPoJHnps6KPgjyMOLf1dvA');
+    </script>
+    %title Secure Payment Form
+    :css
+      .col-centered {
+          display:inline-block;
+          float:none;
+          text-align:left;
+          margin-right:-4px;
+      }
+      .row-centered {
+        margin-left: 9px;
+        margin-right: 9px;
+      }
+  %body
+    %form#payment-form.form-horizontal{action: carts_path, method: "POST"}
+      .row.row-centered
+        .col-md-4.col-md-offset-4
+          .page-header
+            %h2.gdfg Secure Payment Form
+          %fieldset
+
+            %legend Billing Details
+
+            .form-group
+              %label.col-sm-4.control-label{for: "textinput"} Street
+              .col-sm-6
+                %input.address.form-control{name: "street", placeholder: "Street", type: "text"}/
+
+            .form-group
+              %label.col-sm-4.control-label{for: "textinput"} City
+              .col-sm-6
+                %input.city.form-control{name: "city", placeholder: "City", type: "text"}/
+            / State
+            .form-group
+              %label.col-sm-4.control-label{for: "textinput"} State
+              .col-sm-6
+                %input.state.form-control{maxlength: "65", name: "state", placeholder: "State", type: "text"}/
+            / Postcal Code
+            .form-group
+              %label.col-sm-4.control-label{for: "textinput"} Postal Code
+              .col-sm-6
+                %input.zip.form-control{maxlength: "9", name: "zip", placeholder: "Postal Code", type: "text"}/
+            / Country
+            .form-group
+              %label.col-sm-4.control-label{for: "textinput"} Country
+              .col-sm-6
+                / input type="text" name="country" placeholder="Country" class="country form-control"
+                .country.bfh-selectbox.bfh-countries{"data-filter" => "true", "data-flags" => "true", name: "country", placeholder: "Select Country"}
+            / Email
+            .form-group
+              %label.col-sm-4.control-label{for: "textinput"} Email
+              .col-sm-6
+                %input.email.form-control{maxlength: "65", name: "email", placeholder: "Email", type: "text"}/
+            %fieldset
+              %legend Card Details
+              / Card Holder Name
+              .form-group
+                %label.col-sm-4.control-label{for: "textinput"} Card Holder's Name
+                .col-sm-6
+                  %input.card-holder-name.form-control{maxlength: "70", name: "cardholdername", placeholder: "Card Holder Name", type: "text"}/
+              / Card Number
+              .form-group
+                %label.col-sm-4.control-label{for: "textinput"} Card Number
+                .col-sm-6
+                  %input#cardnumber.card-number.form-control{maxlength: "19", placeholder: "Card Number", type: "text"}/
+              / Expiry
+              .form-group
+                %label.col-sm-4.control-label{for: "textinput"} Card Expiry Date
+                .col-sm-6
+                  .form-inline
+                    %select.card-expiry-month.stripe-sensitive.required.form-control{"data-stripe" => "exp-month", name: "select2"}
+                      %option{selected: "selected", value: "01"} 01
+                      %option{value: "02"} 02
+                      %option{value: "03"} 03
+                      %option{value: "04"} 04
+                      %option{value: "05"} 05
+                      %option{value: "06"} 06
+                      %option{value: "07"} 07
+                      %option{value: "08"} 08
+                      %option{value: "09"} 09
+                      %option{value: "10"} 10
+                      %option{value: "11"} 11
+                      %option{value: "12"} 12
+                    %span /
+                    %select.card-expiry-year.stripe-sensitive.required.form-control{"data-stripe" => "exp-year", name: "select2"}
+                    :javascript
+                      var select = $(".card-expiry-year"),
+                      year = new Date().getFullYear();
+ 
+                      for (var i = 0; i < 12; i++) {
+                          select.append($("<option value='"+(i + year)+"' "+(i === 0 ? "selected" : "")+">"+(i + year)+"</option>"))
+                      }
+              / CVV
+              .form-group
+                %label.col-sm-4.control-label{for: "textinput"} CVV/CVV2
+                .col-sm-3
+                  %input#cvv.card-cvc.form-control{maxlength: "4", placeholder: "CVV", type: "text"}/
+              / Important notice
+              .form-group
+                .panel.panel-success
+                  .panel-heading
+                    %h3.panel-title Important notice
+                  .panel-body
+                    %p#errorPrint Your card will be charged 30€ after submit.
+                    %p
+                      Your account statement will show the following booking text:
+                      XXXXXXX
+                / Submit
+                .control-group
+                  .controls
+                    %center
+                      %button.btn.btn-success{type: "submit"} Pay Now
+
+%form#payment-form{action: carts_path, method: "POST"}
+  %article
+    %label.amount
+      %span Amount: $5.00
+  %script.stripe-button{"data-amount" => "500", "data-description" => "A month's subscription", "data-key" => "pk_test_wmqPoJHnps6KPgjyMOLf1dvA", src: "https://checkout.stripe.com/checkout.js"}

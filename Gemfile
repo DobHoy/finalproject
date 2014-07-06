@@ -4,7 +4,7 @@ gem 'rails', '3.2.17'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+# fawefwa
 gem 'pg'
 gem "omniauth-google-oauth2"
 gem "omniauth-github"
@@ -24,6 +24,7 @@ gem 'sass-rails', github: 'guilleiguaran/sass-rails', branch: 'backport'
 gem 'bootstrap-glyphicons'
 gem 'underscore-rails'
 gem "nested_form"
+gem 'font-awesome-sass'
 
 
 group :development do
