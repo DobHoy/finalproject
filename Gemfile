@@ -25,6 +25,8 @@ gem 'bootstrap-glyphicons'
 gem 'underscore-rails'
 gem "nested_form"
 gem 'font-awesome-sass'
+gem 'prawn_rails'
+gem 'cancan'
 
 
 group :development do

@@ -318,14 +318,104 @@ CURRENT
 -build customer extracotr and send - DONE
 -CHeckif everything flows propberly by printing -DONE
 -CREATE stripe objects - DONE
-push to git hub
--coffec script everything
+push to git hub -DONE
+
+
 
 
 ------------------------------6th july ----------------------------
 
 1)go through the site and list out all thefeatures that need to be done beofre the app is considered complete
 
+STILL NEED TO DO
+
+  BASIC SITE DESIGN
+    -landing page with examples 
+    -color scheme
+    -unifiyinf theme
+    -sassfiy it - MAYBE
+    -link architutre
+    -put in a nav bar for completness 
+
+  -CANCAN *
+    -current user to current customer issue
+    -admin page 
+  
+  EXTRA STUFF
+    -Background workers to grab photos
+  
+  -Products page
+    -JS to put numbers on boxes 
+    -Photos and descriptions and layout and colors
+
+  Breadcrumbs layout trio *
+    -summery of the orders page 1
+    -form page 2
+    -thank you page 3
+
+  FORM PAGE *
+    -error handling and flash notices for invalid card numbers etc 
+
+  THANK YOU PAGE
+    -prawnnify it with mailer
+    -discount for you next purchase 
+    -please apple-bookmark our page and you can get future notifications
+
+  DEVISE AND USER ACCOUNTS
+    -check for new users
+    -form validations for new users 
+    -if you have no instagram name
+    -double check with cancan 
+
+  PICTURES PAGE 
+    -hide the forms compleetly 
+    -get the glypichicons working propberly
+    -postion them 
+    -autocplete bar with searching of tags 
+
+    Heroku and apple developer 
+
+    autocomplete and tags 
+
+
+
+---------------------------6th july------------------------------------------
+
+
+thank you page 
+  -get the invoive working - DONE 
+    -make a pdf
+
+  -look at prawn notes and example - DONE 
+
+  -current_order issue - LATER
+
+
+
+
+LAYOUT AND INTERMEDIATE PAGE 
+  -LANDING PAGE -CURRENT
+
+  -LANDING PAGE issues
+    -change color of nav bar - CURRENT/TIM HELP
+    -add pictures - TIM HELP 
+    -copy the other landing page - TIM HELP 
+
+
+---------------------------------- 6TH JULY NIGHT -------------------------------
+
+
+
+-Products page
+    -JS to put numbers on boxes 
+    -Photos and descriptions and layout and colors
+
+  Breadcrumbs layout trio
+    -summery of the orders page 1
+    -form page 2
+    -thank you page 3
+
+-PUSH to heroku and use the url 
 
 
 
@@ -333,6 +423,85 @@ push to git hub
 
 
 
+----------7/8/9-----------------
+
+Pirioties 
+
+-CANCAN
+-PUSH TO HEROKU
+-PICTURES PAGE -CURRENT
+-PRODUCTS PAGE
+-ERROR handling for cards/flash messages
+-XTRA STRIPE THINGY
+-nav bar and layout and overall styling
+-extra stuff and apple developer 
+  
+
+
+
+
+------------------PUSH TO HEROKU------------
+
+
+
+
+------------7th JUly------------------
+
+
+-PICTURES PAGE 
+  -get rid of all the extra forms - DONE
+  -jazziy the submit button - Done
+  -another overlay with the quatnties
+  -sizing and fiting
+  -glyphicons placed proberly
+  -autocomplete with tags?
+
+-DEVISE form checking 
+  -add the form to the landing page
+  -check both forms
+  -cp paste
+
+
+  -another overlay with the quatnties
+    -create a overlay
+      -target it 
+      -set teh quanity 
+
+
+
+  -CANCAN 
+    -follow instructions - CURRENT
+    -slove the problem, customers can't acess other people's orders 
+    -need to set default roles
+    -install cancan 
+    -uncomment the thing
+    -check 
+
+    COMMIITT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -----------------------push to heroku and get user subscriptions---------------
+
+
+
+
+INSTAGRAM TEST APP DETAILS 
+
+usname:sritestapp777
+pass:wa***
+email:sritestapp777@gmail.com
 
 
 

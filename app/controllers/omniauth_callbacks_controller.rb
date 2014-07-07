@@ -15,6 +15,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       def handle_callback(kind)
         # You need to implement the method below in your model (e.g. app/models/user.rb)
         @customer = Customer.find_for_oauth(kind, request.env["omniauth.auth"], current_customer)
+        #@customer.set_default_role
         session[:access_token] = request.env["omniauth.auth"]["credentials"]["token"]
         if @customer.persisted?
           flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => kind.titleize

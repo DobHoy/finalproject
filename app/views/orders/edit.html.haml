@@ -18,6 +18,8 @@
                   %a.glyphicon.glyphicon-plus
                 %li.btn.btn-success.btn-lg
                   %a.glyphicon.glyphicon-minus{}
+              .count#counT 
+                %h2 0
 
 
 #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog",  tabindex: "-1"}
@@ -28,7 +30,7 @@
   .modal-footer
     %button.btn.label-success{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
 
-We have #{@order.lineitems.select { |li| li.product_id == @product.id }.length} lineitems
+/ We have #{@order.lineitems.select { |li| li.product_id == @product.id }.length} lineitems
 
 = nested_form_for @order do |f|
   - if @order.errors.any?
@@ -46,21 +48,12 @@ We have #{@order.lineitems.select { |li| li.product_id == @product.id }.length} 
     = f.fields_for :lineitems do |builder|
       - if builder.object.product == @product
         .field
-          = builder.label :quantity
-          = builder.text_field :quantity, "data-instagram-form-id" => builder.object.instagram_id
+          = builder.hidden_field :quantity, "data-instagram-form-id" => builder.object.instagram_id
         .field   
-          = builder.label :unit_price
-          = builder.text_field :unit_price
+          = builder.hidden_field :unit_price
         .field   
-          = builder.label :instagram_id
-          = builder.text_field :instagram_id
+          = builder.hidden_field :instagram_id
         .field   
-          = builder.label :product_id
-          = builder.text_field :product_id
+          = builder.hidden_field :product_id
   .actions
-    = f.submit 'Save', :id => 'orderButton'
-
-
-= link_to 'Show', @order
-\|
-= link_to 'Back', orders_path
+    = f.submit 'Update Your Order', :id => 'orderButton', :class => "button btn btn-danger btn-lg"

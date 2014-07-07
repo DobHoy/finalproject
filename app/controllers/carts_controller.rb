@@ -1,7 +1,15 @@
 class CartsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  def landingpage
+  
+
+  def listorder
+    # @current_order = Order.find(params[:id])
+    # @current_order.total = sum(listitems.quanity x price)
+
     
+
+
+
   end
 
   def test
@@ -20,7 +28,8 @@ class CartsController < ApplicationController
         add = params[:city]
     puts "the address is #{add}"
     puts "current customer is #{current_customer.email}"
-
+    @orderThatWasCompleted = current_customer.current_order
+    @orderThatWasCompleted.address = add
    current_customer.current_order.total = 3455 #CHANGE THIS
 
       puts "the stripe token is!!!!"
@@ -52,13 +61,15 @@ class CartsController < ApplicationController
 
       #store the stripe order id for fututre retrival
       current_customer.current_order.stripe_charge_id = stripe_charge.id
+
       puts "current customer's stripe id is #{current_customer.current_order.stripe_charge_id}"
 
       puts "charge and custsmoer stripe ids"
       puts stripe_charge.id
       puts stripe_customer.id
 
-      current_customer.current_order.total.iscomplete = true #as order is complete
+      puts "#{current_customer.email} so we all good"
+      # current_customer.current_order.total.iscomplete = true #as order is complete
 
       #send the prawn pdf here
       #then save it to 

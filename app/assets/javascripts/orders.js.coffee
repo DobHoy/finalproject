@@ -25,9 +25,12 @@ $(document).ready ->
     instagramPhotoId = ($clickedLink.parent().parent().parent().parent()).attr("data-instagram-tag-id")
     console.log instagramPhotoId
     $quantFormField = $( "input[data-instagram-form-id='#{instagramPhotoId}']" )
+    $numberOverlayCount = $clickedLink.parent().parent().parent().siblings("#counT h2")
+    console.log($clickedLink.parent().parent())
     currentQuant = $quantFormField.val()
     currentQuant++
     $quantFormField.val(currentQuant) 
+    $numberOverlayCount.val(currentQuant)
     console.log currentQuant
 
   $(".glyphicon-minus").click (e) ->

@@ -1,12 +1,26 @@
 %p#notice= notice
 
 %p
-  %b Total:
-  = @order.total
-%p
-  %b Shipped:
-  = @order.shipped
+  %b Order details!!
 
-= link_to 'Edit', edit_order_path(@order)
-\|
-= link_to 'Back', orders_path
+
+- @current_order.lineitems.each do |lineitem|
+  %tr      
+    %td= lineitem.quantity
+    %td= lineitem.unit_price
+    %td= lineitem.product_id
+    %td= lineitem.instagram_id
+
+
+- if !@current_order.iscomplete
+  = link_to pay_order_path(@current_order) do
+    %button.btn.btn-success.btn-lg
+      %span.glyphicon.glyphicon-user
+        procedd to payment 
+
+- if @current_order.iscomplete
+  = link_to(order_path(@current_order, format: "pdf")) do
+    %button.btn.btn-info.btn-lg 
+      %span Download Invoice
+
+

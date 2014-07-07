@@ -1,47 +1,154 @@
-%h1 About
-%p
-  Welcome to my landing page!!
-%p
-  Its really cool 
-%p
-  You should log in with your instagram account
+!!!
+%html{lang: "en"}
+  %head
+    %title Welcome to Katalyst - One stop site for wonderful gifts
+    %link{href: "http://fonts.googleapis.com/css?family=Montserrat:400,700", rel: "stylesheet", type: "text/css"}/
+    / IE8 support for HTML5 elements and media queries
+    /[if lt IE 9]
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  %body#page-top.index
+    %header
+      .container
+        .row
+          .col-lg-12
+            %img.img-responsive{alt: "", src: "/assets/tshirtsINIT.jpg"}/
+            .intro-text
+              %span.name Cache Gifts
+              %hr.star-light/
+              %span.skills Make Amazing gifts with your instagram pictures
+    %section#portfolio
+      #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+        / Indicators
+        %ol.carousel-indicators
+          %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+        / Wrapper for slides
+        .carousel-inner
+          .item.active
+            %img{alt: "", src: "/assets/tshirtsINIT.jpg"}/
+            .carousel-caption
+              %p hi this is a test caption
+              %h3 Rockstar t-shirts  
+          .item
+            %img{alt: "", src: "/assets/mugsINIT.jpg"}/
+            .carousel-caption
+              %h3 Pictastic mugs   
+              
+        / Controls
+        %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic", role: "button"}
+          %span.glyphicon.glyphicon-chevron-left
+        %a.right.carousel-control{"data-slide" => "next", href: "#carousel-example-generic", role: "button"}
+          %span.glyphicon.glyphicon-chevron-right         
+    %section#portfolio
+      .container
+        .row
+          .col-lg-12.text-center
+            %h2 About
+            %hr.star-light/
+        .row
+          .col-lg-4.col-lg-offset-2
+            %p Katalyst is a new web development studio based in the City of London. Cache Gifts is its first project
+          .col-lg-4
+            %p If you're looking for amazing gift ideas, and are a fan of Instagram, Cache Gifts is the place for you.
+    %section#about.success
+      .container
+        .row
+          .col-lg-12.text-center
+            %h2 About
+            %hr.star-light/
+        .row
+          .col-lg-4.col-lg-offset-2
+            %p Katalyst is a new web development studio based in the City of London. Cache Gifts is its first project
+          .col-lg-4
+            %p If you're looking for amazing gift ideas, and are a fan of Instagram, Cache Gifts is the place for you.
+    %section#about
+      .container
+        .row
+          .col-lg-12.text-center
+            %h2 About
+            %hr.star-light/
+        .row
+          .col-lg-4.col-lg-offset-2
+            %p Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.
+          .col-lg-4
+            %p Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!
+          .col-lg-8.col-lg-offset-2.text-center
+            %a.btn.btn-lg.btn-outline{href: "#"}
+              %i.fa.fa-download
+              Download Theme
+
+    / %section#contact
+    /   .container
+    /     .row
+    /       .col-lg-12.text-center
+    /         %h2 Contact Me
+    /         %hr.star-primary/
+    /     .row
+    /       .col-lg-8.col-lg-offset-2
+    /         %form{role: "form"}
+    /           .row
+    /             .form-group.col-xs-12.floating-label-form-group
+    /               %label{for: "name"} Name
+    /               %input.form-control{name: "name", placeholder: "Name", type: "text"}/
+    /           .row
+    /             .form-group.col-xs-12.floating-label-form-group
+    /               %label{for: "email"} Email Address
+    /               %input.form-control{name: "email", placeholder: "Email Address", type: "email"}/
+    /           .row
+    /             .form-group.col-xs-12.floating-label-form-group
+    /               %label{for: "message"} Message
+    /               %textarea.form-control{placeholder: "Message", rows: "5"}
+    /           %br/
+    /           .row
+    /             .form-group.col-xs-12
+    /               %button.btn.btn-lg.btn-success{type: "submit"} Send
+    %footer.text-center
+      .footer-above
+        .container
+          .row
+            .footer-col.col-md-4
+              %h3 Location
+              %p
+                3481 Melrose Place
+                = succeed "Beverly" do
+                  %br/
+            .footer-col.col-md-4
+              %h3 Around the Web
+              %ul.list-inline
+                %li
+                  %a.btn-social.btn-outline{href: "#"}
+                    %i.fa.fa-fw.fa-facebook
+                %li
+                  %a.btn-social.btn-outline{href: "#"}
+                    %i.fa.fa-fw.fa-google-plus
+                %li
+                  %a.btn-social.btn-outline{href: "#"}
+                    %i.fa.fa-fw.fa-twitter
+                %li
+                  %a.btn-social.btn-outline{href: "#"}
+                    %i.fa.fa-fw.fa-linkedin
+                %li
+                  %a.btn-social.btn-outline{href: "#"}
+                    %i.fa.fa-fw.fa-dribbble
+            .footer-col.col-md-4
+              %h3 About Freelance
+              %p
+                Freelance is a free to use, open source Bootstrap theme created by
+                = succeed "." do
+                  %a{href: "http://startbootstrap.com"} Start Bootstrap
+      .footer-below
+        .container
+          .row
+            .col-lg-12
+              Copyright © 2014 - Your Name
+    .scroll-top.page-scroll.visible-xs.visble-sm
+      %a.btn.btn-primary{href: "#page-top"}
+        %i.fa.fa-chevron-up
+    
+
+    %script{src: "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"}
 
 
-
-
-/ !!!
-/ %html
-/   %head
-/     %title= yield(:title).empty? ? "Cookbook" : yield(:title)
-/     = stylesheet_link_tag    "application", :media => "all"
-/     = javascript_include_tag "application"
-/     = csrf_meta_tags
-/   %body
-/     #page
-
-/       %nav.navbar
-/         %ul.left-nav
-/           %li= link_to('Recipes', recipes_path)
-/           %li= link_to('Ingredients', ingredients_path)
-/           %li= link_to('Users', users_path)
-/           %li= link_to('About', page_path("about"))
-/           %li= link_to('Conditions of use', page_path("legal_mentions/condition"))
-/         %ul.right-nav
-/           %li
-/             - if current_user
-/               logged in as #{current_user.name} ,
-/               = link_to 'Logout', logout_path, method: :delete
-/             -else
-/               = link_to "Login", login_path
-/               or
-/               = link_to "Sign up", signup_path
-/         .clear
-
-
-/       - flash.each do |name, message|
-/         %div(class="flash-message flash-#{name}")
-/           = message
-
-/       %section#main
-/         = yield
 

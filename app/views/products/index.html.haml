@@ -1,5 +1,26 @@
 %h1 Listing products
 
+.heading
+#thing.clearfix
+  .sriBody
+    #allPictures
+      - @products.each do |product|
+        .eachphoto
+          = image_tag product.example_url do
+            .overlay
+              %h2 
+                Select this photo
+              %ul
+                %li.btn.btn-success.btn-lg
+                  %a.glyphicon.glyphicon-search
+                %li.btn.btn-success.btn-lg
+                  %a.glyphicon.glyphicon-plus
+                %li.btn.btn-success.btn-lg
+                  %a.glyphicon.glyphicon-minus{}
+
+
+
+
 %table
   %tr
     %th LI quanitity 
@@ -15,23 +36,21 @@
       %p
         %b hey:
         = link_to edit_order_path(@current_order, :product_id => product.id) do
-          = image_tag("http://www.zwaldtransport.com/images/placeholders/placeholder1.jpg")
+          = image_tag(product.example_url)
 
-  - @current_order.lineitems.each do |lineitem|
-    %tr      
-      %td= lineitem.quantity
-      %td= lineitem.unit_price
-      %td= lineitem.product_id
-      %td= lineitem.instagram_id
+  / - @current_order.lineitems.each do |lineitem|
+  /   %tr      
+  /     %td= lineitem.quantity
+  /     %td= lineitem.unit_price
+  /     %td= lineitem.product_id
+  /     %td= lineitem.instagram_id
        
 %br
 
 
 
 
-
-
-/ = link_to "CHECKOUT" , carts_landingpage_path
-
-/ <a href= "/pages/cartpage"> Connect </a>
-%a{href: "/pages/cartpage"} Connect
+%a{href: "/pages/listorder"} Checkout page 1
+%a{href: "/pages/cartpage"} Checkout page 2
+%a{href: "/pages/exit"} Checkout page 3
+= link_to "curreent order", order_path(@current_order) 

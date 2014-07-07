@@ -11,5 +11,10 @@ class Order < ActiveRecord::Base
     where :iscomplete => false
   end
 
+  def self.orderHandling
+    
+
+  end
+
 
 end

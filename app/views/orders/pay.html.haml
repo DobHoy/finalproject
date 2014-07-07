@@ -18,7 +18,7 @@
         margin-right: 9px;
       }
   %body
-    %form#payment-form.form-horizontal{action: process_payment_order_path(@order), method: "POST"}
+    %form#payment-form.form-horizontal{action: process_payment_order_path(@current_order), method: "POST"}
       .row.row-centered
         .col-md-4.col-md-offset-4
           .page-header
@@ -117,8 +117,3 @@
                     %center
                       %button.btn.btn-success{type: "submit"} Pay Now
 
-%form#payment-form{action: carts_path, method: "POST"}
-  %article
-    %label.amount
-      %span Amount: $5.00
-  %script.stripe-button{"data-amount" => "500", "data-description" => "A month's subscription", "data-key" => "pk_test_wmqPoJHnps6KPgjyMOLf1dvA", src: "https://checkout.stripe.com/checkout.js"}

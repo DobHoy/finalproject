@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140706115148) do
+ActiveRecord::Schema.define(:version => 20140707122457) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20140706115148) do
     t.string   "image"
     t.string   "name"
     t.string   "stripe_customer_id"
+    t.string   "role"
   end
 
   add_index "customers", ["confirmation_token"], :name => "index_customers_on_confirmation_token", :unique => true

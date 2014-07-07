@@ -18,6 +18,8 @@ class Customer < ActiveRecord::Base
     validates :name, presence: true
       validates :email, presence: true
 
+    before_save :set_default_role
+
   def self.find_for_oauth(kind, auth, signed_in_user=nil)
     puts auth.to_s
     case kind
@@ -65,5 +67,11 @@ class Customer < ActiveRecord::Base
   def current_order 
     orders.in_progress.first 
   end
+  def set_default_role
+    self.role = 'user' if self.role == nil
+  end
 
+  def role? role
+    self.role == role.to_s
+  end
 end
