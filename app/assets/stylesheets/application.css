@@ -8,11 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require picturegrid
- *= require boostrap-custom
+ *= require bootstrap.min
  *= require bootstrapValidator-min
  *= require freelancer
  *= require font-awesome
+ *= require_self
  */
+
+#carou {
+  height: 600px;
+  margin: 0 auto;
+}
 

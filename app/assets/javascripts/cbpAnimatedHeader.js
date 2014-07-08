@@ -15,7 +15,7 @@ var cbpAnimatedHeader = (function() {
     header= document.getElementById('hack'),
     didScroll = false,
     changeHeaderOn = 300;
-// debugger;
+
   function init() {
     window.addEventListener( 'scroll', function( event ) {
       if( !didScroll ) {
@@ -26,6 +26,7 @@ var cbpAnimatedHeader = (function() {
   }
 
   function scrollPage() {
+   
     var sy = scrollY();
     if ( sy >= changeHeaderOn ) {
       classie.add( header, 'navbar-shrink' );
@@ -42,4 +43,5 @@ var cbpAnimatedHeader = (function() {
 
   init();
 
-})();
+});
+

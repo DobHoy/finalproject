@@ -12,6 +12,7 @@
 
 $(document).ready ->
 
+  cbpAnimatedHeader()
   # $('#orderButton').click (e) ->
   #   # e.preventDefault()
   #   # implement clcik logic

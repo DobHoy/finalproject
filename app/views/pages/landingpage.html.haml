@@ -45,18 +45,18 @@
         / Wrapper for slides
         .carousel-inner
           .item.active
-            %img{alt: "", src: "/assets/tshirtsINIT.jpg"}/
+            %img#carou{alt: "", src: "/assets/tshirtsINIT.jpg"}
             .carousel-caption
               %p hi this is a test caption
               %h3 Rockstar t-shirts  
           .item
-            %img{alt: "", src: "/assets/mugsINIT.jpg"}/
+            %img#carou{alt: "", src: "/assets/mugsINIT.jpg"}/
             .carousel-caption
               %h3 Pictastic mugs   
               
         / Controls
         %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic", role: "button"}
-          %span.glyphicon.glyphicon-chevron-left
+          %i.fa.fa-5.fa-chevron-left{style: 'font-size: 2em; line-height: 600px;'}
         %a.right.carousel-control{"data-slide" => "next", href: "#carousel-example-generic", role: "button"}
           %span.glyphicon.glyphicon-chevron-right         
     %section#portfolio

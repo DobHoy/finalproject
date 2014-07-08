@@ -504,7 +504,11 @@ LAYOUT - page by page
 
 
 
+-------------------------8th july morning-----------------
 
+COMMIT
+navbar - current
+  -look at current, what links I need extract, put dual focus nav bar
 
 
 
