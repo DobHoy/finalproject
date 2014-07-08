@@ -553,7 +553,11 @@ navbar - current
 
     -----------------------push to heroku and get user subscriptions---------------
 
+---------------------------8th july end of day ---------------------------
 
+1)cache photos
+  -use sidekick 
+  -remote image 
 
 
 INSTAGRAM TEST APP DETAILS 

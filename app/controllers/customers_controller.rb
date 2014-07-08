@@ -80,4 +80,9 @@ class CustomersController < Devise::RegistrationsController
       format.json { head :no_content }
     end
   end
+
+  def after_sign_in_path_for(paying_customer)
+    products_path
+  end
+
 end

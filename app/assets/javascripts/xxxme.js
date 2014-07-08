@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    $("#stripe-errors").hide();
+
     $('#payment-form').bootstrapValidator({
         message: 'This value is not valid',
         feedbackIcons: {
@@ -178,6 +180,7 @@ function stripeResponseHandler(status, response) {
                     // show the errors on the form
 
                     $("#errorPrint").html(response.error.message);
+                    $("#stripe-errors").show();
                 } else {
                     var form$ = $("#payment-form");
                     // token contains id, last4, and card type

@@ -9,7 +9,7 @@ KatalystApp::Application.routes.draw do
   #get 'high_voltage/pages#show', id: 'cartpage'
 
   resources :lineitems
-
+  
 
   resources :products
 
@@ -18,6 +18,9 @@ KatalystApp::Application.routes.draw do
   # want to go to landing page
  
   devise_for :customers, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+  devise_scope :customer do
+    get "/products", to: "products#index", as: :customer_root
+  end
   #   devise_for :customers, path_names: {sign_in: 'login', sign_out: 'logout'}
 
 
