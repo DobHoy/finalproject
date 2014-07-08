@@ -232,12 +232,12 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
 
-  config.omniauth :instagram, "93699a0628e04861a78c058fae66b968", "762d7fa94ddc409597cf3943907a72bc", scope: 'basic'
+  config.omniauth :instagram, ENV["INSTAGRAM_APP_ID"], ENV["INSTAGRAM_APP_SECRET"], scope: 'basic'
 
 
     config.omniauth :google_oauth2,
-    "444420677423-aj8qhlutgsa5pjcc4n5htimpssa5tn3e.apps.googleusercontent.com",
-    "hWbTzbGxV_3iHqyYvkwKzHQi",
+    "IMPLEMENT-IMPLEMENT.apps.googleusercontent.com",
+    "Implement",
     scope: 'email, profile',
     client_options: {
       image_aspect_ratio: "square",
@@ -245,8 +245,8 @@ Devise.setup do |config|
     }
 
   config.omniauth :github,
-    "6fc8ac4326d3c08694c9",
-    "532be27e5e0e49f9d23bd99649aeb3741e9989bd",
+    "IMPLEment",
+    "Implement",
     scope: 'user, repo, gist'
 
 
