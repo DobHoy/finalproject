@@ -10,9 +10,10 @@
  *
  *= require picturegrid
  *= require bootstrap.min
+ *= require bootstrap-glyphicons
+ *= require font-awesome
  *= require bootstrapValidator-min
  *= require freelancer
- *= require font-awesome
  *= require_self
  */
 

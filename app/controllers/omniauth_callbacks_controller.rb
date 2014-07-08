@@ -2,6 +2,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       def instagram
         handle_callback "instagram"
+        # redirect_to products_path
       end
 
       def google_oauth2

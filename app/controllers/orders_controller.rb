@@ -46,6 +46,10 @@ class OrdersController < ApplicationController
         :currency    => 'gbp'
       )
 
+      rescue Stripe::CardError => e
+        flash[:error] = e.message
+        # redirect_to pay_order_path(@current_order) 
+
       #store the stripe order id for fututre retrival
       @current_order.stripe_charge_id = stripe_charge.id
 
@@ -59,6 +63,8 @@ class OrdersController < ApplicationController
 
       @current_order.save!
       redirect_to(order_path(@current_order))
+
+
   end
 
   # GET /orders

@@ -176,7 +176,8 @@ function stripeResponseHandler(status, response) {
                     // show hidden div
 
                     // show the errors on the form
-                    $(".payment-errors").html(response.error.message);
+
+                    $("#errorPrint").html(response.error.message);
                 } else {
                     var form$ = $("#payment-form");
                     // token contains id, last4, and card type

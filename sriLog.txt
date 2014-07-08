@@ -510,6 +510,45 @@ COMMIT
 navbar - current
   -look at current, what links I need extract, put dual focus nav bar
 
+  wht links i need
+
+  -not allowed to products/orders page reroute to main page 
+
+  WHAT I HAVE DECIDED 
+  one nav bar for landing page
+  static links for the rest
+
+  main nav bar -
+
+
+
+
+  PRODUCT PAGE
+
+  -green colour fixed normal bar
+  -see past orders 
+  -current order
+
+  products
+    -one grid (yield this?)
+    -add links to pics nd remove pics 
+      --add back pic to carsouel
+    -checkout footer 
+
+    CURRENT 
+    -find six pics 
+    -sex seeds
+    -crop them all 
+    - add them to carosuel 
+
+    -----------------PAYMENT FORM---------------------
+
+    -remove the fields I don't need
+    -move the panel up and use it to display errors 
+
+
+    errors to demonstarte - 333 and eee for cvc 
+    CURRENT - ALERT POP UP 
 
 
     -----------------------push to heroku and get user subscriptions---------------

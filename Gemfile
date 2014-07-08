@@ -18,11 +18,11 @@ gem 'devise', '~> 3.2.4'
 gem 'jquery-rails'
 gem 'jquery-easing-rails'
 gem 'carrierwave', "0.9.0"
-gem 'bootstrap-sass', '~> 3.1.1'
+# gem 'bootstrap-sass', '~> 3.1.1'
 gem 'sprockets-rails', '=2.0.0.backport1'
 gem 'sprockets', '=2.2.2.backport2'
 gem 'sass-rails', github: 'guilleiguaran/sass-rails', branch: 'backport'
-gem 'bootstrap-glyphicons'
+# gem 'bootstrap-glyphicons'
 gem 'underscore-rails'
 gem "nested_form"
 gem 'font-awesome-sass'

@@ -18,6 +18,20 @@
         margin-right: 9px;
       }
   %body
+    .alert.alert-dismissable.alert-danger
+      %button.close{"data-dismiss" => "alert", type: "button"} ×
+      %strong#errorPrint  Oh snap!
+      %a.alert-link{href: "#"} Change a few things up
+    and try submitting again.
+    .form-group
+    .panel.panel-success
+      .panel-heading
+        %h3.panel-title Important notice
+      .panel-body
+        %p#errorPrint Your card will be charged 30€ after submit.
+        %p
+          Your account statement will show the following booking text:
+          XXXXXXX
     %form#payment-form.form-horizontal{action: process_payment_order_path(@current_order), method: "POST"}
       .row.row-centered
         .col-md-4.col-md-offset-4
@@ -38,21 +52,14 @@
                 %input.city.form-control{name: "city", placeholder: "City", type: "text"}/
             / State
             .form-group
-              %label.col-sm-4.control-label{for: "textinput"} State
+              %label.col-sm-4.control-label{for: "textinput"} County
               .col-sm-6
-                %input.state.form-control{maxlength: "65", name: "state", placeholder: "State", type: "text"}/
+                %input.state.form-control{maxlength: "65", name: "state", placeholder: "County", type: "text"}/
             / Postcal Code
             .form-group
-              %label.col-sm-4.control-label{for: "textinput"} Postal Code
+              %label.col-sm-4.control-label{for: "textinput"} Post Code
               .col-sm-6
-                %input.zip.form-control{maxlength: "9", name: "zip", placeholder: "Postal Code", type: "text"}/
-            / Country
-            .form-group
-              %label.col-sm-4.control-label{for: "textinput"} Country
-              .col-sm-6
-                / input type="text" name="country" placeholder="Country" class="country form-control"
-                .country.bfh-selectbox.bfh-countries{"data-filter" => "true", "data-flags" => "true", name: "country", placeholder: "Select Country"}
-            / Email
+                %input.zip.form-control{maxlength: "9", name: "zip", placeholder: "Post Code", type: "text"}/
             .form-group
               %label.col-sm-4.control-label{for: "textinput"} Email
               .col-sm-6
@@ -98,20 +105,12 @@
                       }
               / CVV
               .form-group
-                %label.col-sm-4.control-label{for: "textinput"} CVV/CVV2
+                %label.col-sm-4.control-label{for: "textinput"} CVV
                 .col-sm-3
                   %input#cvv.card-cvc.form-control{maxlength: "4", placeholder: "CVV", type: "text"}/
-              / Important notice
-              .form-group
-                .panel.panel-success
-                  .panel-heading
-                    %h3.panel-title Important notice
-                  .panel-body
-                    %p#errorPrint Your card will be charged 30€ after submit.
-                    %p
-                      Your account statement will show the following booking text:
-                      XXXXXXX
-                / Submit
+
+
+
                 .control-group
                   .controls
                     %center

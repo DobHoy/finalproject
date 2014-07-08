@@ -2,9 +2,28 @@
 %html{lang: "en"}
   %head
     %title Welcome to Katalyst - One stop site for wonderful gifts
-    %link{href: "http://fonts.googleapis.com/css?family=Montserrat:400,700", rel: "stylesheet", type: "text/css"}
+
 
   %body#page-top.index
+    - if customer_signed_in?
+      Logged in as
+      %b= current_customer.email
+      \|
+      = link_to 'Edit Profile', edit_customer_registration_path
+      \|
+      = link_to 'Logout',  destroy_customer_session_path, method: :delete
+      \| 
+      = link_to('see your photos!!', instagram_user_recent_media_path)
+      \| 
+      = link_to('See all avialble products',   products_path)
+    - else
+      Sign in with
+      = link_to "Instagram", customer_omniauth_authorize_path(:instagram)
+      or     
+      \|
+      = link_to 'Sign up', customer_registration_path
+      \|
+      = link_to 'Login', new_customer_session_path
     %nav.navbar.navbar-default.navbar-fixed-top#hack
       .container
         / Brand and toggle get grouped for better mobile display
@@ -14,16 +33,18 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{href: "#page-top"} Start Bootstrap
+          %a.navbar-brand{href: "#page-top"} Katalyst
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li.hidden
               %a{href: "#page-top"}
             %li.page-scroll
-              %a{href: "#portfolio"} Portfolio
+              %a{href: "#products"} Products
             %li.page-scroll
               %a{href: "#about"} About
+            %li.page-scroll
+              = link_to "Log in with Instagram", customer_omniauth_authorize_path(:instagram)             
             %li.page-scroll
               %a{href: "#contact"} Contact
     %header
@@ -35,13 +56,16 @@
               %span.name Cache Gifts
               %hr.star-light/
               %span.skills Make Amazing gifts with your instagram pictures
-    %section#portfolio
+    %section#products
       #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
         / Indicators
         %ol.carousel-indicators
           %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
           %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
           %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "3", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "4", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "5", "data-target" => "#carousel-example-generic"}
         / Wrapper for slides
         .carousel-inner
           .item.active
@@ -52,24 +76,40 @@
           .item
             %img#carou{alt: "", src: "/assets/mugsINIT.jpg"}/
             .carousel-caption
+              %h3 Pictastic mugs
+          .item
+            %img#carou{alt: "", src: "/assets/postersINIT.jpg"}/
+            .carousel-caption
+              %h3 Pictastic mugs 
+          .item
+            %img#carou{alt: "", src: "/assets/buttonsINIT.jpg"}/
+            .carousel-caption
+              %h3 Pictastic mugs 
+          .item
+            %img#carou{alt: "", src: "/assets/magnetsINIT.jpg"}/
+            .carousel-caption
               %h3 Pictastic mugs   
+          .item
+            %img#carou{alt: "", src: "/assets/cardsINIT.jpg"}/
+            .carousel-caption
+              %h3 Pictastic mugs                                                            
               
         / Controls
         %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic", role: "button"}
           %i.fa.fa-5.fa-chevron-left{style: 'font-size: 2em; line-height: 600px;'}
         %a.right.carousel-control{"data-slide" => "next", href: "#carousel-example-generic", role: "button"}
-          %span.glyphicon.glyphicon-chevron-right         
+          %i.fa.fa-5.fa-chevron-right{style: 'font-size: 2em; line-height: 600px;'}      
     %section#portfolio
       .container
         .row
           .col-lg-12.text-center
-            %h2 About
+            %h2 Products
             %hr.star-light/
         .row
           .col-lg-4.col-lg-offset-2
-            %p Katalyst is a new web development studio based in the City of London. Cache Gifts is its first project
+            %p Log in with your Instagram account to see our wide range of amazing products 
           .col-lg-4
-            %p If you're looking for amazing gift ideas, and are a fan of Instagram, Cache Gifts is the place for you.
+            %p We're adding new gift ideas everyday, so watch this space!
     %section#about.success
       .container
         .row
@@ -97,7 +137,7 @@
               %i.fa.fa-download
               Download Theme
 
-    %footer.text-center
+    %footer.text-center#contact
       .footer-above
         .container
           .row
@@ -126,7 +166,7 @@
                   %a.btn-social.btn-outline{href: "#"}
                     %i.fa.fa-fw.fa-dribbble
             .footer-col.col-md-4
-              %h3 About Freelance
+              %h3 Need a Web Developer?
               %p
                 Freelance is a free to use, open source Bootstrap theme created by
                 = succeed "." do
@@ -135,7 +175,7 @@
         .container
           .row
             .col-lg-12
-              Copyright © 2014 - Your Name
+              Copyright © 2014 - Cache Money
     .scroll-top.page-scroll.visible-xs.visble-sm
       %a.btn.btn-primary{href: "#page-top"}
         %i.fa.fa-chevron-up

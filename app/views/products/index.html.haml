@@ -6,49 +6,15 @@
     #allPictures
       - @products.each do |product|
         .eachphoto
-          = image_tag product.example_url do
-            .overlay
-              %h2 
-                Select this photo
-              %ul
-                %li.btn.btn-success.btn-lg
-                  %a.glyphicon.glyphicon-search
-                %li.btn.btn-success.btn-lg
-                  %a.glyphicon.glyphicon-plus
-                %li.btn.btn-success.btn-lg
-                  %a.glyphicon.glyphicon-minus{}
-
-
-
-
-%table
-  %tr
-    %th LI quanitity 
-    %th LI unit price 
-    %th LI product id 
-    %th LI instagram pic id 
-    %th
-    %th
-    %th
-
-  - @products.each do |product|
-    %tr
-      %p
-        %b hey:
-        = link_to edit_order_path(@current_order, :product_id => product.id) do
-          = image_tag(product.example_url)
-
-  / - @current_order.lineitems.each do |lineitem|
-  /   %tr      
-  /     %td= lineitem.quantity
-  /     %td= lineitem.unit_price
-  /     %td= lineitem.product_id
-  /     %td= lineitem.instagram_id
-       
-%br
+          = link_to edit_order_path(@current_order, :product_id => product.id) do
+            = image_tag(product.example_url)
 
 
 
 
 
-= link_to "curreent order", order_path(@current_order) 
+
+
+
+
+= link_to "Checkout", order_path(@current_order) 
