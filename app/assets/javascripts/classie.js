@@ -30,6 +30,7 @@ if ( 'classList' in document.documentElement ) {
     return elem.classList.contains( c );
   };
   addClass = function( elem, c ) {
+    // debugger;
     elem.classList.add( c );
   };
   removeClass = function( elem, c ) {

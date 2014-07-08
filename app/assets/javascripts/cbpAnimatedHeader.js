@@ -11,10 +11,11 @@
 var cbpAnimatedHeader = (function() {
 
   var docElem = document.documentElement,
-    header = document.querySelector( '.navbar-fixed-top' ),
+    // header = document.querySelector( '.navbar-fixed-top' ),
+    header= document.getElementById('hack'),
     didScroll = false,
     changeHeaderOn = 300;
-
+// debugger;
   function init() {
     window.addEventListener( 'scroll', function( event ) {
       if( !didScroll ) {
@@ -30,9 +31,7 @@ var cbpAnimatedHeader = (function() {
       classie.add( header, 'navbar-shrink' );
     }
     else {
-      console.log("hi aim ");
       classie.remove( header, 'navbar-shrink' );
-            console.log("hi aim 2");
     }
     didScroll = false;
   }

@@ -427,8 +427,8 @@ LAYOUT AND INTERMEDIATE PAGE
 
 Pirioties 
 
--CANCAN
--PUSH TO HEROKU
+-CANCAN - DONE
+-PUSH TO HEROKU - DONE
 -PICTURES PAGE -CURRENT
 -PRODUCTS PAGE
 -ERROR handling for cards/flash messages
@@ -452,14 +452,16 @@ Pirioties
   -get rid of all the extra forms - DONE
   -jazziy the submit button - Done
   -another overlay with the quatnties
-  -sizing and fiting
+  -sizing and fiting - CURRENT
   -glyphicons placed proberly
   -autocomplete with tags?
 
--DEVISE form checking 
+-DEVISE form checking -CURREENT
   -add the form to the landing page
   -check both forms
   -cp paste
+
+
 
 
   -another overlay with the quatnties
@@ -475,16 +477,30 @@ Pirioties
     -need to set default roles
     -install cancan 
     -uncomment the thing
-    -check 
+    -check -DONE
 
     COMMIITT
 
 
+----------------------------7th july 8pm to late------------------------------
+
+
+http://sri-final-project.herokuapp.com => heroku site
+
+zero push - LAST THING TO DO
+devise forms - done, need instructor help
+photo - form
+layout - and font awesome
 
 
 
 
+---------------------------8th july---------------------------------------------
 
+
+LAYOUT - page by page
+-landing page - CURRENT
+-products page- next 
 
 
 

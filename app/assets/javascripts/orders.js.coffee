@@ -23,24 +23,26 @@ $(document).ready ->
   $(".glyphicon-plus").click (e) ->
     $clickedLink = $(this) #store object
     instagramPhotoId = ($clickedLink.parent().parent().parent().parent()).attr("data-instagram-tag-id")
-    console.log instagramPhotoId
+
     $quantFormField = $( "input[data-instagram-form-id='#{instagramPhotoId}']" )
-    $numberOverlayCount = $clickedLink.parent().parent().parent().siblings("#counT h2")
-    console.log($clickedLink.parent().parent())
+    $numberOverlayCount = $clickedLink.parent().parent().parent().find("#counT h2")
+
     currentQuant = $quantFormField.val()
     currentQuant++
     $quantFormField.val(currentQuant) 
-    $numberOverlayCount.val(currentQuant)
+    $numberOverlayCount.text(currentQuant)
     console.log currentQuant
 
   $(".glyphicon-minus").click (e) ->
     $clickedLink = $(this) #store object
     instagramPhotoId = ($clickedLink.parent().parent().parent().parent()).attr("data-instagram-tag-id")
-    console.log instagramPhotoId
+
     $quantFormField = $( "input[data-instagram-form-id='#{instagramPhotoId}']" )
+    $numberOverlayCount = $clickedLink.parent().parent().parent().find("#counT h2")
     currentQuant = $quantFormField.val()
     currentQuant--  if currentQuant > 0
     $quantFormField.val(currentQuant) 
+    $numberOverlayCount.text(currentQuant)
     console.log currentQuant
 
 

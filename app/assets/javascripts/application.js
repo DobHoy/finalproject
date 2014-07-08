@@ -14,7 +14,14 @@
 //= require jquery_ujs
 //= require underscore
 //= require bootstrap
+//= require jquery.easing
 //= require jquery_nested_form
-//= require_tree .
+//= require classie
+//= require cbpAnimatedHeader
+//= require freelancer
+//= require bootstrapValidator-min
+//= require orders
+//= require xxxme
+
 
 

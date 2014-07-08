@@ -56,7 +56,7 @@ class Customer < ActiveRecord::Base
       if auth = session["devise.instagram_data"] || session["devise.github_data"] || session["devise.google_data"]
         user.name = auth.info.name if user.name.blank?
 
-        user.email = "yo" if user.email.blank?
+        user.email = "" if user.email.blank?
         user.instagramid = auth.uid
         user.image = auth.info.image if user.image.blank?
         user.skip_confirmation! # don't require email confirmation
