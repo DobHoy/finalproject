@@ -608,11 +608,23 @@ i need the glyphicons to show and look good
 
 
 -----WEBHOOKS----------
+
+6xJN58UnSrTUTrqWLin7jIZEtY64RCDA ultrahook api key
+
+
+http://stripe.sriapp.ultrahook.com
+
 0)commit and work on differnet branch 
 1)install gem 
 2)get cal back working first 
 3)follow blog step by step but use your own thing 
 4) 
+
+MAILER-
+add the mailer migration 
+add the letter opener stuff 
+uncommet the mailer 
+try agian
 
 
 

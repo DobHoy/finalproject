@@ -13,7 +13,7 @@ KatalystApp::Application.routes.draw do
 
   resources :products
 
-
+  mount StripeEvent::Engine => '/stripe-webhooks'
   root :to => 'high_voltage/pages#show', id: 'landingpage'
   # want to go to landing page
  
