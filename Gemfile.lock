@@ -47,6 +47,7 @@ GEM
     activesupport (3.2.17)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    addressable (2.3.6)
     arel (3.0.3)
     bcrypt (3.1.7)
     better_errors (1.1.0)
@@ -129,6 +130,10 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
+    launchy (2.4.2)
+      addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -289,6 +294,7 @@ DEPENDENCIES
   instagram
   jquery-easing-rails
   jquery-rails
+  letter_opener
   meta_request
   nested_form
   omniauth-github

@@ -622,12 +622,13 @@ http://stripe.sriapp.ultrahook.com
 
 MAILER-
 add the mailer migration 
+make the email view 
 add the letter opener stuff 
 uncommet the mailer 
 try agian
 
 
-
+touch app/views/charge_mailer/charge_confirmation.text.haml
 
 function stripeResponseHandler(status, response) {
                 if (response.error) {
