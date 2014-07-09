@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140707122457) do
+ActiveRecord::Schema.define(:version => 20140709130920) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -65,8 +65,9 @@ ActiveRecord::Schema.define(:version => 20140707122457) do
     t.integer  "order_id"
     t.integer  "product_id"
     t.string   "instagram_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.text     "instagram_url"
   end
 
   create_table "orders", :force => true do |t|

@@ -7,8 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def pay 
-    #FILL IN LATER
-    # @order = ...
+
     @current_order = Order.find(params[:id])
   end
 
@@ -25,65 +24,45 @@ class OrdersController < ApplicationController
         runningTotal += (lineitem.quantity*lineitem.unit_price)
        end
 
-     
-
-      puts "the stripe token is!!!!"
-      puts params[:stripeToken]
+      #my rescue block
       begin
         #create stripe customer id
         stripe_customer = Stripe::Customer.create(
-          :email => current_customer.email,
+          :email => params[:email],
           :card  => params[:stripeToken]
         )
 
-        #store the stripe customer id
-        
-
-
-       
-          stripe_charge = Stripe::Charge.create(
-            :customer    => stripe_customer.id,
-            :amount      => runningTotal,
-            :description => 'Cache money customer',
-            :currency    => 'gbp'
-          )
+        stripe_charge = Stripe::Charge.create(
+          :customer    => stripe_customer.id,
+          :amount      => runningTotal,
+          :description => 'Cache money customer',
+          :currency    => 'gbp'
+        )
         flash[:notice] = 'Card charged successfully.'
-      # end
+
+        @current_order.iscomplete = true
+        @current_order.total = runningTotal
+        @current_order.stripe_charge_id = stripe_charge.id
+        @current_order.save!
+        current_customer.stripe_customer_id = stripe_customer.id
       
-      # rescue Stripe::CardError => e
+        redirect_to(order_path(@current_order))
+      rescue Stripe::CardError => e
 
-      #   flash[:notice] = 'WE HAVE A STRIPE ERROR!!'
-      #   # redirect_to pay_order_path(@current_order)
-      # end
-      # rescue => e
+        errorMessage = e.json_body[:error][:message]
 
-      # flash[:notice] = 'Some error occurred.'
-      # # redirect_to pay_order_path(@current_order)
+
+        flash[:notice] = errorMessage
+        redirect_to pay_order_path(@current_order)
+
+      rescue => e
+
+        flash[:notice] = 'Some other error occurred.'
+        redirect_to pay_order_path(@current_order)
+
+      
 
       end
-   
-
-    
-  
-
-      #store the stripe order id for fututre retrival
-     
-
-      # puts "charge and custsmoer stripe ids"
-      # puts stripe_charge.id
-      # puts stripe_customer.id
-
-      puts "#{current_customer.email} so we all good"
-
-      @current_order.iscomplete = true
-      @current_order.total = runningTotal
-      # @current_order.stripe_charge_id = stripe_charge.id
-      @current_order.save!
-
-      #do i need to do a .save here?
-      # current_customer.stripe_customer_id = stripe_customer.id
-      
-      redirect_to(order_path(@current_order))
 
 
   end
@@ -136,9 +115,9 @@ class OrdersController < ApplicationController
         #store pics using worker using the instagram id and array 
         #pass in the instagram id and the array and worker goes off and grabs the photo later 
 
-        @order.lineitems.build product: @product, quantity: 0, unit_price: @product.current_price, instagram_id: pic.id
-        
-        PhotoWorker.perform_async pic.id, pic[:images][:standard_resolution][:url], current_customer.id
+        @order.lineitems.build product: @product, quantity: 0, unit_price: @product.current_price, instagram_id: pic.id, instagram_url: pic[:images][:standard_resolution][:url]
+
+        PhotoWorker.perform_async pic.id, pic[:images][:standard_resolution][:url], current_customer.id, @order.id
       end
     end
 

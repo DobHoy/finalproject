@@ -23,6 +23,12 @@
     %td= lineitem.unit_price
     %td= lineitem.product_id
     %td= lineitem.instagram_id
+    #picLineItemInstaThumb
+      - if lineitem.photo
+        - url = lineitem.photo.image.thumb
+      - else
+        - url = lineitem.instagram_url
+      = image_tag(url)
 
 
 - if !@current_order.iscomplete

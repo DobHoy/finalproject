@@ -18,28 +18,28 @@
         margin-right: 9px;
       }
   %body
-    #stripe-errors.alert.alert-dismissable.alert-danger
-      %button.close{"data-dismiss" => "alert", type: "button"} ×
-      %strong#errorPrint  Opps!
+    / #stripe-errors.alert.alert-dismissable.alert-danger
+    /   %button.close{"data-dismiss" => "alert", type: "button"} ×
+    /   %strong#errorPrint  Opps!
+
 
     - if !flash.empty?
-      -raise
-      #mainFlash
+      #notice.alert.alert-dismissable.alert-danger
+        %button.close{"data-dismiss" => "alert", type: "button"} ×
         - flash.each do |name, msg|
           #flashNav
-            = content_tag :div, msg, :id => "flash_#{name}"
+            = notice
 
 
-    and try submitting again.
-    .form-group
-    .panel.panel-success
-      .panel-heading
-        %h3.panel-title Important notice
-      .panel-body
-        %p#errorPrint Your card will be charged 30€ after submit.
-        %p
-          Your account statement will show the following booking text:
-          XXXXXXX
+    / .form-group
+    / .panel.panel-success
+    /   .panel-heading
+    /     %h3.panel-title Important notice
+    /   .panel-body
+    /     %p#errorPrint Your card will be charged 30€ after submit.
+    /     %p
+    /       Your account statement will show the following booking text:
+    /       XXXXXXX
     %form#payment-form.form-horizontal{action: process_payment_order_path(@current_order), method: "POST"}
       .row.row-centered
         .col-md-4.col-md-offset-4

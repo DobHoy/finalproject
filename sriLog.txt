@@ -599,6 +599,23 @@ look at the flatly theme
 think about a layout 
 put the layout 
 
+-overlay 
+i need the glyphicons to show and look good 
+
+-mailer, mail the invoice 
+-s3 uploads 
+-heroku deployment
+
+
+-----WEBHOOKS----------
+0)commit and work on differnet branch 
+1)install gem 
+2)get cal back working first 
+3)follow blog step by step but use your own thing 
+4) 
+
+
+
 
 function stripeResponseHandler(status, response) {
                 if (response.error) {

@@ -5,7 +5,8 @@ class Lineitem < ActiveRecord::Base
                   :product,
                   :product_id,
                   :order,
-                  :order_id
+                  :order_id,
+                  :instagram_url
 
   belongs_to :product
   belongs_to :order
