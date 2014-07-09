@@ -40,8 +40,14 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(params[:photo])
 
+      @photo = Photo.new({
+      remote_image_url: params[:image_url]
+    })
+
+        
+      @photo.customer_id = params[:customer_id]
+      
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }

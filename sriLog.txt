@@ -557,8 +557,20 @@ navbar - current
 
 1)cache photos
   -use sidekick 
-  -remote image 
+  -remote image
 
+
+CACHING
+    - where am i getting the photos?
+    -1st time grab, put in cache
+    2nd time, check if have before, 
+      if not grab 
+      if yes, get from cache
+
+
+  -------------------------------------------------------
+
+DON'T FORGET, YOU HAVE JON'S THUMB NAIL!!
 
 INSTAGRAM TEST APP DETAILS 
 
@@ -566,7 +578,26 @@ usname:sritestapp777
 pass:wa***
 email:sritestapp777@gmail.com
 
+--------------------------------9TH JULY ------------------------
 
+CURRENT - ALERT AND STRIPE ERRORS
+
+--flash notice put in alert box 
+--flash notice in succesful payment
+
+--grab flsh FROM PROJECT 2
+
+
+NEXT -- JON'S THMBNAIL PIC 
+AFTER -ORDER SHOW PAGE WITH LINE ITEMS
+AFTER AFTER - .PDF 
+
+CURRENT - JON'S THNUMNAIL 
+LINE ITEMS
+
+look at the flatly theme
+think about a layout 
+put the layout 
 
 
 function stripeResponseHandler(status, response) {

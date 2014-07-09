@@ -1,8 +1,21 @@
-%p#notice= notice
+/ %p#notice
+/   = notice
+
+- if !flash.empty?
+
+
+  #notice.alert.alert-dismissable.alert-info
+    %button.close{"data-dismiss" => "alert", type: "button"} ×
+    - flash.each do |name, msg|
+      #flashNav
+        / = content_tag :div, msg, :id => "flash_#{name}"
+        = notice
 
 %p
   %b Order details!!
 
+#pic
+  = image_tag(current_customer.image)
 
 - @current_order.lineitems.each do |lineitem|
   %tr      

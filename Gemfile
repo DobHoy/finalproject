@@ -13,7 +13,7 @@ gem 'omniauth-instagram', '~> 1.0.1'
 gem 'instagram'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'high_voltage'
-gem 'rmagick'
+
 gem 'devise', '~> 3.2.4'
 gem 'jquery-rails'
 gem 'jquery-easing-rails'
@@ -28,7 +28,10 @@ gem "nested_form"
 gem 'font-awesome-sass'
 gem 'prawn_rails'
 gem 'cancan'
-
+gem 'rmagick'
+gem "fog", "~> 1.3.1"
+gem 'sinatra', '>= 1.3.0', :require => nil
+gem 'sidekiq'
 
 group :development do
   gem 'pry-rails'

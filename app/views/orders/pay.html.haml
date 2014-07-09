@@ -20,7 +20,15 @@
   %body
     #stripe-errors.alert.alert-dismissable.alert-danger
       %button.close{"data-dismiss" => "alert", type: "button"} ×
-      %strong#errorPrint  Oh snap!
+      %strong#errorPrint  Opps!
+
+    - if !flash.empty?
+      -raise
+      #mainFlash
+        - flash.each do |name, msg|
+          #flashNav
+            = content_tag :div, msg, :id => "flash_#{name}"
+
 
     and try submitting again.
     .form-group

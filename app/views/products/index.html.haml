@@ -1,5 +1,27 @@
 %h1 Listing products
 
+%nav.navbar.navbar-inverse.navbar-fixed-top#hack
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header.page-scroll
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: "#page-top"} Katalyst
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.hidden
+          %a{href: "#page-top"}
+        %li.page-scroll
+          %a{href: "#products"} Products
+        %li.page-scroll
+          %a{href: "#about"} About         
+        %li.page-scroll
+          %a{href: "#contact"} Contact
+
 .heading
 #thing.clearfix
   .sriBody

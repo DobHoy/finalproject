@@ -83,10 +83,12 @@ ActiveRecord::Schema.define(:version => 20140707122457) do
   end
 
   create_table "photos", :force => true do |t|
-    t.string   "url"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "instagram_url"
     t.integer  "customer_id"
+    t.string   "instagram_id"
+    t.text     "image"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "products", :force => true do |t|

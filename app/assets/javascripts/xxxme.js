@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("#stripe-errors").hide();
-
+    $("#mainFlash").hide();
     $('#payment-form').bootstrapValidator({
         message: 'This value is not valid',
         feedbackIcons: {

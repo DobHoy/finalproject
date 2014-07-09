@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
 
   belongs_to :customer
   belongs_to :cart
-  has_many :lineitems
+  has_many :lineitems, include: :photo
 
   accepts_nested_attributes_for :lineitems, reject_if: proc { |attributes| attributes[:quantity].to_i <= 0 }
 

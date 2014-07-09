@@ -2,8 +2,6 @@ class Lineitem < ActiveRecord::Base
   attr_accessible :quantity,
                   :unit_price,
                   :instagram_id,
-                  :photo,
-                  :photo_id,
                   :product,
                   :product_id,
                   :order,
@@ -11,7 +9,7 @@ class Lineitem < ActiveRecord::Base
 
   belongs_to :product
   belongs_to :order
-  belongs_to :photo
+  belongs_to :photo, primary_key: :instagram_id, foreign_key: :instagram_id
 
   # validates :quantity, :numericality => { :greater_than => 0}
 end

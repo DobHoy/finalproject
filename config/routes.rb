@@ -1,5 +1,5 @@
 KatalystApp::Application.routes.draw do
-  
+    require 'sidekiq/web'
   resources :carts do 
         get 'test'
   end
@@ -23,6 +23,9 @@ KatalystApp::Application.routes.draw do
   end
   #   devise_for :customers, path_names: {sign_in: 'login', sign_out: 'logout'}
 
+  # authenticate :customer, lambda {|u| u.admin? } do 
+      mount Sidekiq::Web => '/sidekiq'
+  # end
 
   # devise_scope :customers do 
   #   get 'login', to: 'devise/sessions#new'

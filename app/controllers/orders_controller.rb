@@ -25,43 +25,64 @@ class OrdersController < ApplicationController
         runningTotal += (lineitem.quantity*lineitem.unit_price)
        end
 
-      @current_order.total = runningTotal
+     
 
       puts "the stripe token is!!!!"
       puts params[:stripeToken]
+      begin
+        #create stripe customer id
+        stripe_customer = Stripe::Customer.create(
+          :email => current_customer.email,
+          :card  => params[:stripeToken]
+        )
 
-      #create stripe customer id
-      stripe_customer = Stripe::Customer.create(
-        :email => current_customer.email,
-        :card  => params[:stripeToken]
-      )
+        #store the stripe customer id
+        
 
-      #store the stripe customer id
-      current_customer.stripe_customer_id = stripe_customer.id
-@current_order.total = 2000
-      stripe_charge = Stripe::Charge.create(
-        :customer    => stripe_customer.id,
-        :amount      => @current_order.total,
-        :description => 'Cache money customer',
-        :currency    => 'gbp'
-      )
 
+       
+          stripe_charge = Stripe::Charge.create(
+            :customer    => stripe_customer.id,
+            :amount      => runningTotal,
+            :description => 'Cache money customer',
+            :currency    => 'gbp'
+          )
+        flash[:notice] = 'Card charged successfully.'
+      # end
+      
       # rescue Stripe::CardError => e
-      #   flash[:error] = e.message
-        # redirect_to pay_order_path(@current_order) 
+
+      #   flash[:notice] = 'WE HAVE A STRIPE ERROR!!'
+      #   # redirect_to pay_order_path(@current_order)
+      # end
+      # rescue => e
+
+      # flash[:notice] = 'Some error occurred.'
+      # # redirect_to pay_order_path(@current_order)
+
+      end
+   
+
+    
+  
 
       #store the stripe order id for fututre retrival
-      @current_order.stripe_charge_id = stripe_charge.id
+     
 
-      puts "charge and custsmoer stripe ids"
-      puts stripe_charge.id
-      puts stripe_customer.id
+      # puts "charge and custsmoer stripe ids"
+      # puts stripe_charge.id
+      # puts stripe_customer.id
 
       puts "#{current_customer.email} so we all good"
 
       @current_order.iscomplete = true
-
+      @current_order.total = runningTotal
+      # @current_order.stripe_charge_id = stripe_charge.id
       @current_order.save!
+
+      #do i need to do a .save here?
+      # current_customer.stripe_customer_id = stripe_customer.id
+      
       redirect_to(order_path(@current_order))
 
 
@@ -110,8 +131,14 @@ class OrdersController < ApplicationController
     @instagramPics = client.user_recent_media
 
     @instagramPics.each do |pic|
+
       unless @order.lineitems.detect { |li| li.instagram_id == pic.id && li.product == @product }
+        #store pics using worker using the instagram id and array 
+        #pass in the instagram id and the array and worker goes off and grabs the photo later 
+
         @order.lineitems.build product: @product, quantity: 0, unit_price: @product.current_price, instagram_id: pic.id
+        
+        PhotoWorker.perform_async pic.id, pic[:images][:standard_resolution][:url], current_customer.id
       end
     end
 
@@ -146,6 +173,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update_attributes(params[:order])
+    save_photots_used_in_lineitems
     redirect_to products_path
   end
 
@@ -160,4 +188,12 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
+
+  def save_photots_used_in_lineitems
+    @order.lineitems
+  end
+
 end

@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 
     @current_order = current_customer.current_order || current_customer.orders.create! 
 
-    
+            # PhotoWorker.perform_async 10, "just finished doing a job for photoController"
 
     respond_to do |format|
       format.html # index.html.erb
