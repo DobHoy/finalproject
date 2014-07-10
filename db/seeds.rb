@@ -24,7 +24,7 @@ ProductButtons = Product.create!(:name=>"Buttons", :description=>"Amazing button
 ProductMagnets = Product.create!(:name=>"Magnets", :description=>"Insipring magnets for your fridge?", :current_price=>2005, :example_url=>"/assets/magnetsINIT.jpg")
 ProductCards = Product.create!(:name=>"Cards", :description=>"Customizable namecards are a go", :current_price=>200, :example_url=>"/assets/cardsINIT.jpg")
 ProductJumpers = Product.create!(:name=>"Jumpers", :description=>"Buy now for the winter season", :current_price=>500, :example_url=>"/assets/jumpersINIT.jpg")
-# ProductJumpers = Product.create!(:name=>"Jumpers", :description=>"Buy now for the winter season", :current_price=>500, :example_url=>"/assets/jumpersINIT.jpg")
-
+ProductTotes = Product.create!(:name=>"Totes", :description=>"Need a man-purse?", :current_price=>550, :example_url=>"/assets/totebagsINIT.jpg")
+ProductPillows = Product.create!(:name=>"Pillows", :description=>"I sleep alone anyway", :current_price=>1000, :example_url=>"/assets/pillowsINIT.jpg")
 
 [customer1, customerAdmin].each(&:skip_confirmation!).each(&:save!)

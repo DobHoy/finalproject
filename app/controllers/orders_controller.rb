@@ -27,6 +27,19 @@ class OrdersController < ApplicationController
       #my rescue block
       begin
         #create stripe customer id
+
+        #TO DO WHEN I HAVE MORE TIME
+
+        #THIS IS WRONG I HAVE TO CHECK IF THE CUSTOMER EXSISTS
+        # IN MY DATABASE BEFORE I CREATE A NEW ONE. OR ELSE THERE WILL 
+        # BE MULITPLE JONS. THERE CAN ONLY BE ONE JON :)
+
+        # stripe_check = current_customer.stripe_customer_id
+        # if nil create customer and stripe_customer.id
+        # if !nil stripe_customer.id = stripe_check don't create customer
+
+        #now create a charge
+
         stripe_customer = Stripe::Customer.create(
           :email => params[:email],
           :card  => params[:stripeToken]
@@ -45,7 +58,7 @@ class OrdersController < ApplicationController
         @current_order.stripe_charge_id = stripe_charge.id
         @current_order.save!
         current_customer.stripe_customer_id = stripe_customer.id
-       current_customer.save!
+        current_customer.save!
         redirect_to(order_path(@current_order))
       rescue Stripe::CardError => e
 

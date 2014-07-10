@@ -101,8 +101,16 @@ opacity:0.4;
 }
 
 #notice  {
+  margin-top: 10px;
   margin-right:33vw;
   margin-left:33vw;
 
+
+}
+
+#stripe-errors {
+    margin-top: 10px;
+    margin-right:33vw;
+    margin-left:33vw;
 
 }
