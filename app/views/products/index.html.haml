@@ -1,5 +1,5 @@
-%h1 Listing products
 
+#dudethisistheproductspage
 %nav.navbar.navbar-inverse.navbar-fixed-top#hack
   .container
     / Brand and toggle get grouped for better mobile display
@@ -16,12 +16,11 @@
         %li.hidden
           %a{href: "#page-top"}
         %li.page-scroll
-          %a{href: "#products"} Products
+          = link_to "Checkout", order_path(@current_order)
         %li.page-scroll
-          %a{href: "#about"} About         
-        %li.page-scroll
-          %a{href: "#contact"} Contact
+          = link_to 'Logout',  destroy_customer_session_path, method: :delete
 
+      
 .heading
 #thing.clearfix
   .sriBody
@@ -38,5 +37,3 @@
 
 
 
-
-= link_to "Checkout", order_path(@current_order) 

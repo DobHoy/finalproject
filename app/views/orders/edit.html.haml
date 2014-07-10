@@ -1,6 +1,27 @@
 .heading
   %h1   
     =@id
+%nav.navbar.navbar-inverse.navbar-fixed-top#hack
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header.page-scroll
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: "#page-top"} Katalyst
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.hidden
+          %a{href: "#page-top"}
+        %li.page-scroll
+          = link_to('See all Available products',   products_path)
+        %li.page-scroll
+          = link_to 'Logout',  destroy_customer_session_path, method: :delete
+
+
 #thing.clearfix
   .sriBody
     #allPictures

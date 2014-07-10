@@ -627,6 +627,27 @@ add the letter opener stuff
 uncommet the mailer 
 try agian
 
+------------------10th july final stretch------------------
+
+
+-work through page by page
+-minal is key 
+-resue code if possible
+-things i will be presenting 
+-practise
+
+
+CURRENT - 
+normalize the picturres
+
+
+
+pdf -DONE
+order page - current  
+PRODUCT PAGE 
+
+
+
 
 touch app/views/charge_mailer/charge_confirmation.text.haml
 

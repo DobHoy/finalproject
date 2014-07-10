@@ -6,7 +6,7 @@ Rails.configuration.stripe = {
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
 STRIPE_PUBLIC_KEY = ENV["STRIPE_PUB_KEY"]
 StripeEvent.subscribe 'charge.succeeded' do |event|
-    puts "hi is it me you're looking for"
+   
 
     # puts"the email is"
     # puts event.data.object.card.customer
@@ -17,7 +17,10 @@ StripeEvent.subscribe 'charge.succeeded' do |event|
     #the above block takes too long and really I should have the stripe_customer_id stored in my 
     # table
 
-email_ineed = "jon@jon.com"
-  ChargeMailer.charge_confirmation(email_ineed).deliver
+     puts "hi is it me you're looking for"
+    cus_id = event.data.object.card.customer
+    puts "cus id is"
+    puts cus_id 
+  ChargeMailer.charge_confirmation(cus_id).deliver
 
 end

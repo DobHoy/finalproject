@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
         @current_order.stripe_charge_id = stripe_charge.id
         @current_order.save!
         current_customer.stripe_customer_id = stripe_customer.id
-      
+       current_customer.save!
         redirect_to(order_path(@current_order))
       rescue Stripe::CardError => e
 
