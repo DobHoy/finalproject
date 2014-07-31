@@ -54,8 +54,8 @@ class Customer < ActiveRecord::Base
   def self.new_with_session(params, session)
     super.tap do |user|
       if auth = session["devise.instagram_data"] || session["devise.github_data"] || session["devise.google_data"]
-        user.name = auth.info.name if user.name.blank?
-
+        # user.name = auth.info.name if user.name.blank?
+        user.name = 'Guest'
         user.email = "" if user.email.blank?
         user.instagramid = auth.uid
         user.image = auth.info.image if user.image.blank?

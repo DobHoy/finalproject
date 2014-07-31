@@ -17,6 +17,31 @@
 #pic
   = image_tag(current_customer.image)
 
+%section
+  .container
+    .row
+      .col-lg-12
+        .page-header
+          %h1#container Welcome Guest
+        .bs-component
+          .jumbotron
+            %h1 Checkout
+            %p Please review your order.
+            - if !@current_order.iscomplete
+              = link_to pay_order_path(@current_order) do
+                %a.btn.btn-primary.btn-lg Proceed to payment
+        %ul.list-group
+          %li.list-group-item
+            %span.badge 14
+            Cras justo odio
+          %li.list-group-item
+            %span.badge 2
+            Dapibus ac facilisis in
+          %li.list-group-item
+            %span.badge 1
+            Morbi leo risus
+
+
 - @current_order.lineitems.each do |lineitem|
   %tr      
     %td= lineitem.quantity

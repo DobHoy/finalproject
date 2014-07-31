@@ -1,13 +1,15 @@
 
  #allPictures
 {
-  margin: 10px 10px 10px 10px;
+  margin: 120px 10px 10px 10px;
   width: 100%;
 
 }
 
 #allPictures div {
   display: inline-block;
+  
+
 }
 
 .eachphoto img {

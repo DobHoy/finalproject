@@ -1,0 +1,10 @@
+Ultrahooks:
+
+command to start ultrahooks -> ultrahook stripe http://localhost:3000/stripe-webhooks
+
+the api key is in a screenshot and in this folder
+
+heroku:
+
+command to push to heroku -> git push heroku master   
+

@@ -3,12 +3,12 @@ class PhotoWorker
   sidekiq_options backtrace: 100, retry: false
 
   def perform(instagram_id, instagram_url, customer_id, order_id)
-    photo = Photo.create!(
-      instagram_id: instagram_id,
-      instagram_url: instagram_url,
-      customer_id: customer_id,
-      remote_image_url: instagram_url
-    )
+    # photo = Photo.create!(
+    #   instagram_id: instagram_id,
+    #   instagram_url: instagram_url,
+    #   customer_id: customer_id,
+    #   remote_image_url: instagram_url
+    # )
   end
 end
 

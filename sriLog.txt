@@ -654,9 +654,26 @@ one more time and we have clean notes!
 
 
 
+--------------clean up the local copy------------
 
+-get the developement tags - DONE
+-get the basic walktrhough - CURRENT
+  -FIX THE USERNAME ISSUE - DONE
+  -get rid of all present links - DONE
+  -PUSH DOWN ALL THE prodcuts page- DONE
+  -Normalize the pictures to be squares -DONE
+  -orders list page - CURRENT 
+  -pdf page - NEXT 
+-PUSH TO HEROKU
+-
 
-
+orders list page - 
+  1)do the name bit 
+    -change the form to have names 
+    -add name to container
+  2)List
+    -change it so list items are displayed
+    -change the badges 
 
 
 
